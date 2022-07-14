@@ -52,6 +52,6 @@ const namas = ['aaaaaa1', '5', '0s', '7z7', '3fs1  0', '%%674'];
 
 namas.sort((a, b) => a.localeCompare(b));
 
-// su if galima palyginti stringus, su pirmuoju atveju - ne
+// su if galima palyginti stringus (ta pati daro localeCompare), su pirmuoju atveju - ne
 
 console.log(namas);
