@@ -1,23 +1,26 @@
 // 1
 let arr = [...Array(30)].map(_ => rand(5, 25));
-// 2
-
+// 2 a
 console.log(arr.filter(a => (a > 10)));
 
+// 2 b
 let max = Math.max(...arr);
 let ind = arr.indexOf(max);
 console.log(max, ind);
 
+// 2 c
 let sumOfEvenIndex = 0;
 for (let i = 0; i < arr.length; i+=2) {
     sumOfEvenIndex += arr[i]
 };
 console.log(sumOfEvenIndex);
+// 2 d
 
 let arr2 = arr.map((a, i) => a - i);
 console.log(arr);
 console.log(arr2);
 
+// 2 e
 console.clear();
 
 for (let i = 0; i < 10; i++) {
@@ -25,6 +28,7 @@ for (let i = 0; i < 10; i++) {
 }
 console.log(arr);
 
+// 2 f
 let arrEvenInd = [];
 let arrOddInd = [];
 arr.forEach((a, i) => {
@@ -34,24 +38,26 @@ arr.forEach((a, i) => {
         } else {
             arrOddInd.push(a)
         }
-});
-console.log(arrEvenInd);
-console.log(arrOddInd);
-
+    });
+    console.log(arrEvenInd);
+    console.log(arrOddInd);
+// 2 g
+    
 console.log(arr.map((a, i) => {
     if (i % 2 === 0
         && a > 15
         || i === 0 && a > 15) {
-           return 0
+            return 0
         } else {
             return a
         }
-}));
+    }));
     
-for (let i = 0; i < arr.length; i++) {
-    if (arr[i] > 10) {
-        console.log(i);
-        break;
+// 2 h
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] > 10) {
+    console.log(i);
+    break;
     }
 };
 
