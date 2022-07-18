@@ -29,30 +29,30 @@ console.log(arr.filter((_, i) => i % 2 === 0).reduce((a, b) => a + b));
 console.log('~~~~~~~~~ 2d ~~~~~~~~~');
 
 let arr2 = arr.map((a, i) => a - i);
-console.log(arr);
-console.log(arr2);
+console.log(`Pirminis: ${arr}`);
+console.log(`Rezultatas: ${arr2}`);
 
 // 2 e. Papildykite masyvą papildomais 10 elementų su reikšmėmis nuo 5 iki 25, kad bendras masyvas padidėtų iki indekso 39;
 console.log('~~~~~~~~~ 2e ~~~~~~~~~');
 
-for (let i = 0; i < 10; i++) {
-    arr.push(rand(5, 25));
-}
+// for (let i = 0; i < 10; i++) {
+//     arr.push(rand(5, 25));
+// }
+// console.log(arr);
+
+arr.push(...([...Array(10)].map(_ => rand(5, 25))));
 console.log(arr);
 
 // 2 f. Iš masyvo elementų sukurkite du naujus masyvus. Vienas turi būti sudarytas iš neporinių indeksų reikšmių, o kitas iš porinių (pagal neporinį-porinį indeksą, ne reikšmę);
 console.log('~~~~~~~~~ 2f ~~~~~~~~~');
 
+
+// let [arrEvenInd, arrOddInd] = [arr.filter((a, i)=> i % 2 === 0), arr.filter((a, i)=> i % 2 !== 0)];   PERSISTENGTA
+// let arrEvenInd = arr.filter((a, i)=> i % 2 === 0);
+// let arrOddInd = arr.filter((a, i)=> i % 2 !== 0);
 let arrEvenInd = [];
 let arrOddInd = [];
-arr.forEach((a, i) => {
-    if (i === 0
-        || i % 2 === 0) {
-            arrEvenInd.push(a)
-        } else {
-            arrOddInd.push(a)
-        }
-    });
+arr.forEach((a, i) => i % 2 === 0 ? arrEvenInd.push(a) : arrOddInd.push(a));
     console.log(arrEvenInd);
     console.log(arrOddInd);
 // 2 g. Pirminio masyvo elementus su poriniais indeksais padarykite lygius 0 jeigu jie didesni už 15;
@@ -60,8 +60,7 @@ console.log('~~~~~~~~~ 2g ~~~~~~~~~');
    
 console.log(arr.map((a, i) => {
     if (i % 2 === 0
-        && a > 15
-        || i === 0 && a > 15) {
+        && a > 15) {
             return 0
         } else {
             return a
@@ -70,12 +69,13 @@ console.log(arr.map((a, i) => {
     
 // 2 h. Suraskite pirmą (mažiausią) indeksą, kurio elemento reikšmė didesnė už 10;
 console.log('~~~~~~~~~ 2h ~~~~~~~~~');
-   for (let i = 0; i < arr.length; i++) {
-        if (arr[i] > 10) {
-        console.log(i);
-        break;
-    }
-};
+//    for (let i = 0; i < arr.length; i++) {
+//         if (arr[i] > 10) {
+//         console.log(i);
+//         break;
+//     }
+// };
+console.log(arr.indexOf(arr.filter(n => n > 10)[0]));
 
 // 3. Sugeneruokite masyvą, kurio reikšmės atsitiktinės raidės A, B, C ir D, o ilgis 200. Suskaičiuokite kiek yra kiekvienos raidės.
 console.log('~~~~~~~~~ 3 ~~~~~~~~~');
