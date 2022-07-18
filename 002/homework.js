@@ -1,15 +1,16 @@
 // 1. Sugeneruokite masyvą iš 30 elementų (indeksai nuo 0 iki 29), kurių reikšmės yra atsitiktiniai skaičiai nuo 5 iki 25.
 let arr = [...Array(30)].map(_ => rand(5, 25));
-
+console.log(arr);
 // 2. Naudodamiesi 1 uždavinio masyvu:
 
 // 2 a. Suskaičiuokite kiek masyve yra reikšmių didesnių už 10;
-console.log(arr.filter(a => (a > 10)));
+
+sumOfGreaterThan10 = 0;
+arr.forEach(a => a > 10 ? sumOfGreaterThan10 += 1 : sumOfGreaterThan10);
+console.log(sumOfGreaterThan10);
 
 // 2 b. Raskite didžiausią masyvo reikšmę ir jos indeksą;
-let max = Math.max(...arr);
-let ind = arr.indexOf(max);
-console.log(max, ind);
+console.log(`reiksme ${Math.max(...arr)}, indeksas ${arr.indexOf(Math.max(...arr))}`);
 
 // 2 c. Suskaičiuokite visų porinių (lyginių) indeksų reikšmių sumą;
 
@@ -27,7 +28,6 @@ console.log(arr2);
 
 // 2 e. Papildykite masyvą papildomais 10 elementų su reikšmėmis nuo 5 iki 25, kad bendras masyvas padidėtų iki indekso 39;
 
-console.clear();
 
 for (let i = 0; i < 10; i++) {
     arr.push(rand(5, 25));
@@ -127,7 +127,6 @@ console.log(uniqueWords);
 // 5 
 // Sugeneruokite du masyvus, kurių reikšmės yra atsitiktiniai skaičiai nuo 100 iki 999. Masyvų ilgiai 100. Masyvų reikšmės turi būti unikalios savo masyve (t.y. neturi kartotis).;
 
-console.clear();
 
 const arr100 = [];
 while (arr100.length < 100) {
