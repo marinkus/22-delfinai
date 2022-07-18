@@ -24,6 +24,7 @@ for (let i = 0; i < arr.length; i+=2) {
     sumOfEvenIndex += arr[i]
 };
 console.log(sumOfEvenIndex);
+console.log(arr.filter((_, i) => i % 2 === 0).reduce((a, b) => a + b));
 // 2 d. Sukurkite naują masyvą, kurio reikšmės yra 1 uždavinio masyvo reikšmes minus tos reikšmės indeksas;
 console.log('~~~~~~~~~ 2d ~~~~~~~~~');
 
