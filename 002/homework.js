@@ -1,26 +1,32 @@
-// 1
+// 1. Sugeneruokite masyvą iš 30 elementų (indeksai nuo 0 iki 29), kurių reikšmės yra atsitiktiniai skaičiai nuo 5 iki 25.
 let arr = [...Array(30)].map(_ => rand(5, 25));
-// 2 a
+
+// 2. Naudodamiesi 1 uždavinio masyvu:
+
+// 2 a. Suskaičiuokite kiek masyve yra reikšmių didesnių už 10;
 console.log(arr.filter(a => (a > 10)));
 
-// 2 b
+// 2 b. Raskite didžiausią masyvo reikšmę ir jos indeksą;
 let max = Math.max(...arr);
 let ind = arr.indexOf(max);
 console.log(max, ind);
 
-// 2 c
+// 2 c. Suskaičiuokite visų porinių (lyginių) indeksų reikšmių sumą;
+
 let sumOfEvenIndex = 0;
 for (let i = 0; i < arr.length; i+=2) {
     sumOfEvenIndex += arr[i]
 };
 console.log(sumOfEvenIndex);
-// 2 d
+// 2 d. Sukurkite naują masyvą, kurio reikšmės yra 1 uždavinio masyvo reikšmes minus tos reikšmės indeksas;
+
 
 let arr2 = arr.map((a, i) => a - i);
 console.log(arr);
 console.log(arr2);
 
-// 2 e
+// 2 e. Papildykite masyvą papildomais 10 elementų su reikšmėmis nuo 5 iki 25, kad bendras masyvas padidėtų iki indekso 39;
+
 console.clear();
 
 for (let i = 0; i < 10; i++) {
@@ -28,7 +34,8 @@ for (let i = 0; i < 10; i++) {
 }
 console.log(arr);
 
-// 2 f
+// 2 f. Iš masyvo elementų sukurkite du naujus masyvus. Vienas turi būti sudarytas iš neporinių indeksų reikšmių, o kitas iš porinių (pagal neporinį-porinį indeksą, ne reikšmę);
+
 let arrEvenInd = [];
 let arrOddInd = [];
 arr.forEach((a, i) => {
@@ -41,7 +48,8 @@ arr.forEach((a, i) => {
     });
     console.log(arrEvenInd);
     console.log(arrOddInd);
-// 2 g
+// 2 g. Pirminio masyvo elementus su poriniais indeksais padarykite lygius 0 jeigu jie didesni už 15;
+
     
 console.log(arr.map((a, i) => {
     if (i % 2 === 0
@@ -53,7 +61,8 @@ console.log(arr.map((a, i) => {
         }
     }));
     
-// 2 h
+// 2 h. Suraskite pirmą (mažiausią) indeksą, kurio elemento reikšmė didesnė už 10;
+
     for (let i = 0; i < arr.length; i++) {
         if (arr[i] > 10) {
     console.log(i);
@@ -61,7 +70,8 @@ console.log(arr.map((a, i) => {
     }
 };
 
-// 3
+// 3. Sugeneruokite masyvą, kurio reikšmės atsitiktinės raidės A, B, C ir D, o ilgis 200. Suskaičiuokite kiek yra kiekvienos raidės.
+
 
 const letters = ['A', 'B', 'C', 'D'];
 
@@ -90,7 +100,8 @@ for (let letter of arrOfLetters) {
 
 console.log(`A: ${countA}, B: ${countB}, C: ${countC}, D: ${countD}`);
 
-// 4
+// 4. Sugeneruokite 3 masyvus pagal 3 uždavinio sąlygą. Sudėkite masyvus, sudėdami atitinkamas reikšmes. Paskaičiuokite kiek unikalių (po vieną, nesikartojančių) reikšmių ir kiek unikalių kombinacijų gavote.
+
 
 let arrOL1 = [...Array(200)].map(_ => letters[rand(0, 3)]);
 let arrOL2 = [...Array(200)].map(_ => letters[rand(0, 3)]);
