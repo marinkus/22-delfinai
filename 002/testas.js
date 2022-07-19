@@ -16,7 +16,7 @@ console.log(cats, owners);
 
 console.log(cats.length);
 console.log(cats);
-console.log(cats.filter(n => !(n % 3)));
+console.log(cats.filter(n => !(n % 3)).reduce((a, b) => a + b));
 
 // 3
 
