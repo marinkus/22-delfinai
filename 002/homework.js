@@ -80,39 +80,20 @@ console.log(arr.indexOf(arr.filter(n => n > 10)[0]));
 // 3. Sugeneruokite masyvą, kurio reikšmės atsitiktinės raidės A, B, C ir D, o ilgis 200. Suskaičiuokite kiek yra kiekvienos raidės.
 console.log('~~~~~~~~~ 3 ~~~~~~~~~');
 
-const letters = ['A', 'B', 'C', 'D'];
-
-let arrOfLetters = [...Array(200)].map(_ => letters[rand(0, 3)]);
+let arrOfLetters = [...Array(200)].map(_ => ['A', 'B', 'C', 'D'][rand(0, 3)]);
 console.log(arrOfLetters);
 
-let countA = 0;
-let countB = 0;
-let countC = 0;
-let countD = 0;
+let count = { A: 0, B: 0, C: 0, D: 0 };
 
-for (let letter of arrOfLetters) {
-    if (letter === 'A') {
-        countA += 1;
-    };
-    if (letter === 'B') {
-        countB += 1;
-    };
-    if (letter === 'C') {
-        countC += 1;
-    };
-    if (letter === 'D') {
-        countD += 1;
-    }
-};
-
-console.log(`A: ${countA}, B: ${countB}, C: ${countC}, D: ${countD}`);
+arrOfLetters.forEach(l => count[l]++);
+console.log(count);
 
 // 4. Sugeneruokite 3 masyvus pagal 3 uždavinio sąlygą. Sudėkite masyvus, sudėdami atitinkamas reikšmes. Paskaičiuokite kiek unikalių (po vieną, nesikartojančių) reikšmių ir kiek unikalių kombinacijų gavote.
 console.log('~~~~~~~~~ 4 ~~~~~~~~~');
 
-let arrOL1 = [...Array(200)].map(_ => letters[rand(0, 3)]);
-let arrOL2 = [...Array(200)].map(_ => letters[rand(0, 3)]);
-let arrOL3 = [...Array(200)].map(_ => letters[rand(0, 3)]);
+let arrOL1 = [...Array(200)].map(_ => ['A', 'B', 'C', 'D'][rand(0, 3)]);
+let arrOL2 = [...Array(200)].map(_ => ['A', 'B', 'C', 'D'][rand(0, 3)]);
+let arrOL3 = [...Array(200)].map(_ => ['A', 'B', 'C', 'D'][rand(0, 3)]);
 
 
 let mix = [];
@@ -122,35 +103,64 @@ for (let i = 0; i < arrOL1.length; i++) {
 
 console.log(mix);
 
-const uniqueWords = {};
+const uniqueCombinations = {};
 
-for (let word of mix) {
-    if (uniqueWords[word]) {
-        uniqueWords[word]++
-    } else {uniqueWords[word] = 1}
+for (let combinations of mix) {
+    if (uniqueCombinations[combinations]) {
+        uniqueCombinations[combinations]++
+    } else {uniqueCombinations[combinations] = 1}
 };
-console.log(uniqueWords);
+console.log(uniqueCombinations);
+
+
+console.log('Unikalios nepasikartojancios reiksmes');
+let onlyOne = [];
+for (const [key, value] of Object.entries(uniqueCombinations)) {
+    if (value === 1) {
+        onlyOne.push(key)
+    } else {
+        null
+    }
+};
+console.log(onlyOne);
+
 
 // 5 
 // Sugeneruokite du masyvus, kurių reikšmės yra atsitiktiniai skaičiai nuo 100 iki 999. Masyvų ilgiai 100. Masyvų reikšmės turi būti unikalios savo masyve (t.y. neturi kartotis).;
 console.log('~~~~~~~~~ 5 ~~~~~~~~~');
 
-const arr100 = [];
-while (arr100.length < 100) {
-  const number = rand(100, 999);
-  if (arr100.indexOf(number) === -1) {
-    arr100.push(number);
-  }
-}
-const arr101 = [];
-while (arr101.length < 100) {
-  const number = rand(100, 999);
-  if (arr101.indexOf(number) === -1) {
-    arr101.push(number);
-  }
-}
-console.log(arr100);
-console.log(arr101);
+// const arr100 = [];
+// while (arr100.length < 100) {
+//   const number = rand(100, 999);
+//   if (arr100.indexOf(number) === -1) {
+//     arr100.push(number);
+//   };
+// };
+// const arr101 = [];
+// while (arr101.length < 100) {
+//   const number = rand(100, 999);
+//   if (arr101.indexOf(number) === -1) {
+//     arr101.push(number);
+//   };
+// };
+// console.log(arr100);
+// console.log(arr101);
+
+const m1 = new Set();
+const m2 = new Set();
+
+while (m1.size < 100) {
+    m1.add(rand(100, 999));
+};
+while (m2.size < 100) {
+    m2.add(rand(100, 999));
+};
+const arrFrom1Set = [...m1];
+const arrFrom2Set = [...m2];
+
+console.log(arrFrom1Set, arrFrom2Set);
+
+
 
 // 6
 /* Sugeneruokite masyvą, kuris būtų sudarytas iš reikšmių, kurios yra pirmame 5 uždavinio masyve, bet nėra antrame 5 uždavinio masyve.
@@ -158,9 +168,9 @@ console.log(arr101);
 console.log('~~~~~~~~~ 6 ~~~~~~~~~');
 
 let uniqueNumbers = [];
-for (let i = 0; i < arr100.length; i++) {
-    if (!arr101.includes(arr100[i])) {
-        uniqueNumbers.push(arr100[i])
+for (let i = 0; i < arrFrom1Set.length; i++) {
+    if (!arrFrom2Set.includes(arrFrom1Set[i])) {
+        uniqueNumbers.push(arrFrom1Set[i])
     }
 };
 
@@ -171,9 +181,9 @@ console.log(uniqueNumbers);
 console.log('~~~~~~~~~ 7 ~~~~~~~~~');
 
 let duplicateNumbers = [];
-for (let i = 0; i < arr100.length; i++) {
-    if (arr101.includes(arr100[i])) {
-        duplicateNumbers.push(arr100[i])
+for (let i = 0; i < arrFrom1Set.length; i++) {
+    if (arrFrom2Set.includes(arrFrom1Set[i])) {
+        duplicateNumbers.push(arrFrom1Set[i])
     }
 };
 
@@ -185,8 +195,8 @@ console.log(duplicateNumbers);
 console.log('~~~~~~~~~ 8 ~~~~~~~~~');
 
 let mergedArr = [];
-for (let i = 0; i < arr100.length; i++) {
-    mergedArr[arr100[i]] = arr101[i];
+for (let i = 0; i < arrFrom1Set.length; i++) {
+    mergedArr[arrFrom1Set[i]] = arrFrom2Set[i];
 };
 console.log(mergedArr);
 

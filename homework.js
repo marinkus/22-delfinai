@@ -51,11 +51,18 @@ console.log(wallet);
 
 console.log(wallet.skaiciuoti());
 
-// 3
+// 3 & 4
 
 class Troleibusas {
+    static keleiviuSkaicius = 0;
+    static bendrasKeleiviuSkaicius(keleiviuSkaicius) {
+        Troleibusas.visiKeleiviai += keleiviuSkaicius;
+        return `Bendras keleiviu skaicius: ${Troleibusas.visiKeleiviai}`;
+    }
     constructor () {
         this.keleiviuSkaicius = 0;
+        this.totalKeleiviuSkaicius = 0;
+        
     };
     ilipa(keleiviuSkaicius) {
         this.keleiviuSkaicius += keleiviuSkaicius;
@@ -73,6 +80,9 @@ class Troleibusas {
     vaziuoja() {
         return this.keleiviuSkaicius;
     };
+    keleiviuSkaiciusVisuoseTroleibusuose() {
+        console.log(`Bendras keleiviu skaicius visuose troleibusuose: ${this.visiKeleiviai}`);
+    };
 };
 
 const trulikas = new Troleibusas;
@@ -80,6 +90,8 @@ const trulikas = new Troleibusas;
 console.log(trulikas.ilipa(10));
 console.log(trulikas.islipa(15));
 console.log(trulikas.vaziuoja());
+console.log(trulikas.keleiviuSkaiciusVisuoseTroleibusuose());
+
 
 
 
