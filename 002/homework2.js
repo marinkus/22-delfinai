@@ -140,7 +140,6 @@ while (sum500 < 500) {
         sum500 -= kupiura;
     }
 };
-console.log(wallet[1]);
 
 console.log(sum500);
 console.log(wallet[1]);
