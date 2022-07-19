@@ -35,12 +35,5 @@ console.log(catOwners);
 
 // 5
 
-for (let name of owners) {
-     for (let i = 0; i < owners.length; i++) {
-        if (name === owners[i + 1]) {
-            console.log(name);
-            break;
-        }
-        break;
-     }
-}
+
+console.log(owners.find(name => owners.indexOf(name) !== owners.lastIndexOf(name)));
