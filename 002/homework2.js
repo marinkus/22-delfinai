@@ -129,11 +129,18 @@ while (sum500 < 500) {
     let kupiura = rand(3, 10);
     sum500 += kupiura;
     wallet[1].push(kupiura);
+    if (sum500 > 497 && sum500 !== 500) {
+        wallet[1].pop();
+        sum500 -= kupiura;
+        sum500 += 3;
+        wallet[1].push(3);
+    }
     if (sum500 > 500) {
         wallet[1].pop();
         sum500 -= kupiura;
-    };
+    }
 };
+console.log(wallet[1]);
 
 console.log(sum500);
 console.log(wallet[1]);
