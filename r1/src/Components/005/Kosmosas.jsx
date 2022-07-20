@@ -1,6 +1,6 @@
 import rand from "../../Functions/rand";
 
-function Kosmosas({spalva, krastas}) {
+function Kosmosas({spalva, krastas, manoStilius}) {
 
 
 return (
@@ -17,6 +17,7 @@ return (
             {/* <div style={{color: 'crimson', backgroundColor: 'skyblue'}}></div> */}
         Marsas
     </div>
+    <div style={manoStilius}>Absurdas</div>
     </>
     );
 };
