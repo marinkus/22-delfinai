@@ -107,6 +107,42 @@ console.log(Troleibusas.keleiviuSkaiciusVisuoseTroleibusuose());
 
 
 // 5
+console.clear();
 
+/* (MAP) Sukurti klasę PirkiniuKrepselis. Konstruktoriuje sukurti savybę turinys, kuri yra Map tipo objektas. Sukurti tris metodus: idetiSureli(kiekis), idetiPieno(kiekis), idetiDuonos(kiekis). Parašyti metodą krepselioTurinys(), kuris į konsolę išvestų produktų sąrašą (turinys kintamąjį). Pridėti tuos pačius produktus galima po kelis kartus, tokiu atveju produktų kiekis turėtų sumuotis.
+ */
 
+class PirkiniuKrepselis {
+    constructor () {
+        this.turinys = new Map ();
+    };
+    idetiPieno(kiekis) {
+        let pienas = this.turinys.get('Pienas');
+        this.turinys.has(`Pienas`) ? this.turinys.set('Pienas', pienas + kiekis) : this.turinys.set('Pienas', kiekis);
+        return `Ideta i krepseli ${kiekis} vnt. pieno, is viso reikia nupirkti ${this.turinys.get('Pienas')} pieno`;
+    }
+    idetiSureli(kiekis) {
+        let surelis = this.turinys.get('Surelis');
+        this.turinys.has(`Surelis`) ? this.turinys.set('Surelis', surelis + kiekis) : this.turinys.set('Surelis', kiekis);
+        return `Ideta i krepseli ${kiekis} vnt. sureliu, is viso reikia nupirkti ${this.turinys.get('Surelis')} surelius`;
+    }
+    idetiDuonos(kiekis) {
+        let duona = this.turinys.get('Duona');
+        this.turinys.has(`Duona`) ? this.turinys.set('Duona', duona + kiekis) : this.turinys.set('Duona', kiekis);
+        return `Ideta i krepseli ${kiekis} vnt. sureliu, is viso reikia nupirkti ${this.turinys.get('Duona')} surelius`;
+    }
+    krepselioTurinys(){
+        return this.turinys
+    }
+};
 
+let lapelis = new PirkiniuKrepselis;
+console.log(lapelis.idetiPieno(3));
+console.log(lapelis.idetiPieno(2));
+console.log(lapelis.idetiDuonos(2));
+console.log(lapelis.idetiDuonos(1));
+console.log(lapelis.idetiSureli(8));
+console.log(lapelis.idetiSureli(3));
+console.log(lapelis.krepselioTurinys());
+
+// 6
