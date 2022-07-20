@@ -55,24 +55,25 @@ console.log(wallet.skaiciuoti());
 
 class Troleibusas {
     static keleiviuSkaicius = 0;
-    static bendrasKeleiviuSkaicius(keleiviuSkaicius) {
-        Troleibusas.visiKeleiviai += keleiviuSkaicius;
-        return `Bendras keleiviu skaicius: ${Troleibusas.visiKeleiviai}`;
-    }
+    static keleiviuSkaiciusVisuoseTroleibusuose() {
+        return `Bendras keleiviu skaicius visuose troleibusuose: ${Troleibusas.keleiviuSkaicius}`;
+    };
     constructor () {
         this.keleiviuSkaicius = 0;
         this.totalKeleiviuSkaicius = 0;
-        
     };
     ilipa(keleiviuSkaicius) {
         this.keleiviuSkaicius += keleiviuSkaicius;
+        Troleibusas.keleiviuSkaicius += keleiviuSkaicius;
         return `Ilipo ${keleiviuSkaicius}`;   
     };
     islipa(keleiviuSkaicius) {
         if (keleiviuSkaicius <= this.keleiviuSkaicius) {
         this.keleiviuSkaicius -= keleiviuSkaicius;
+        Troleibusas.keleiviuSkaicius -= keleiviuSkaicius;
         return `Islipo ${keleiviuSkaicius}`;
         } else {
+        Troleibusas.keleiviuSkaicius -= this.keleiviuSkaicius;
         this.keleiviuSkaicius = 0;
         return `Negali islipti daugiau, nei buvo viduje, kazkas vaziavo zuikiu`;
         }   
@@ -80,18 +81,32 @@ class Troleibusas {
     vaziuoja() {
         return this.keleiviuSkaicius;
     };
-    keleiviuSkaiciusVisuoseTroleibusuose() {
-        console.log(`Bendras keleiviu skaicius visuose troleibusuose: ${this.visiKeleiviai}`);
-    };
 };
 
 const trulikas = new Troleibusas;
 
 console.log(trulikas.ilipa(10));
-console.log(trulikas.islipa(15));
+console.log(trulikas.islipa(2));
 console.log(trulikas.vaziuoja());
-console.log(trulikas.keleiviuSkaiciusVisuoseTroleibusuose());
 
+
+
+const trulikas2 = new Troleibusas;
+
+console.log(trulikas2.ilipa(10));
+console.log(trulikas2.islipa(15));
+console.log(trulikas2.vaziuoja());
+
+
+const trulikas3 = new Troleibusas;
+
+console.log(trulikas3.ilipa(4));
+console.log(trulikas3.islipa(2));
+console.log(trulikas3.vaziuoja());
+console.log(Troleibusas.keleiviuSkaiciusVisuoseTroleibusuose());
+
+
+// 5
 
 
 
