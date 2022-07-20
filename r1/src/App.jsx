@@ -7,7 +7,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <h1>MAIN CONTENT</h1>
-        <Kosmosas></Kosmosas>
+        <Kosmosas spalva='magenta' krastas='40px'></Kosmosas>
       </header>
     </div>
   );
