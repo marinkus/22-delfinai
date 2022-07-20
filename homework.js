@@ -1,15 +1,24 @@
-// 1
+// 1 & 7
+console.log('---------- 1 & 7 ----------');
 
-class Kibiras1 {
+class Kibiras {
+    static visiAkmenys = 0;
+    static bendrasAkmenuSkaicius(akmenuSkaicius) {
+        return `bendras akmenu kiekis visuose kibiruose ${Kibiras.visiAkmenys}`
+    }
+    // static akmenuSkaiciusVisuoseKibiruose() {
+    // }
     constructor () {
         this.akmenuKiekis = 0;
     };
     prideti1Akmeni() {
         this.akmenuKiekis += 1;
+        Kibiras.visiAkmenys += 1;
         return `Pridetas 1 akmuo`
     };
     pridetiDaugAkmenu(num) {
         this.akmenuKiekis += num;
+        Kibiras.visiAkmenys += num;
         return `prideta akmenu: ${num}`;
     };
     kiekPririnktaAkmenu() {
@@ -17,24 +26,33 @@ class Kibiras1 {
     };
 };
 
-const viedras = new Kibiras1;
+const viedras = new Kibiras;
+const viedras2 = new Kibiras;
 console.log(viedras.prideti1Akmeni());
 console.log(viedras.pridetiDaugAkmenu(5));
+console.log(viedras2.pridetiDaugAkmenu(5));
+console.log(Kibiras.bendrasAkmenuSkaicius());
 
-// 2  
+// 2  &  6
+console.log('---------- 2 & 6 ----------');
 
 class Pinigine {
     constructor () {
         this.metaliniaiPinigai = [];
         this.popieriniaiPinigai = [];
+        this.monetos = 0;
+        this.banknotai = 0;
     };
     ideti (num) {
         if (num > 2) {
-            this.popieriniaiPinigai.push(num)
+            this.popieriniaiPinigai.push(num);
+            this.banknotai += num;
+            return `I pinigine ikrito ${num} popieriaus`
         } else {
-            this.metaliniaiPinigai.push(num)
+            this.metaliniaiPinigai.push(num);
+            this.monetos += num;
+            return `I pinigine ikrito ${num} metalo`
         };
-        return `I pinigine ikrito ${num}`
     };
     skaiciuoti() {
         return this.metaliniaiPinigai.reduce((a, b) => a + b) + this.popieriniaiPinigai.reduce((a, b) => a + b);
@@ -48,10 +66,13 @@ console.log(wallet.ideti(5));
 console.log(wallet.ideti(2));
 console.log(wallet.ideti(1));
 console.log(wallet);
+console.log(wallet.monetos);
+console.log(wallet.banknotai);
 
 console.log(wallet.skaiciuoti());
 
 // 3 & 4
+console.log('---------- 3 & 4 ----------');
 
 class Troleibusas {
     static keleiviuSkaicius = 0;
@@ -107,11 +128,10 @@ console.log(Troleibusas.keleiviuSkaiciusVisuoseTroleibusuose());
 
 
 // 5
-console.clear();
 
 /* (MAP) Sukurti klasę PirkiniuKrepselis. Konstruktoriuje sukurti savybę turinys, kuri yra Map tipo objektas. Sukurti tris metodus: idetiSureli(kiekis), idetiPieno(kiekis), idetiDuonos(kiekis). Parašyti metodą krepselioTurinys(), kuris į konsolę išvestų produktų sąrašą (turinys kintamąjį). Pridėti tuos pačius produktus galima po kelis kartus, tokiu atveju produktų kiekis turėtų sumuotis.
  */
-
+console.log('---------- 5 ----------');
 class PirkiniuKrepselis {
     constructor () {
         this.turinys = new Map ();
@@ -145,4 +165,22 @@ console.log(lapelis.idetiSureli(8));
 console.log(lapelis.idetiSureli(3));
 console.log(lapelis.krepselioTurinys());
 
-// 6
+// 8
+/* Sukurti klasę Stikline. Sukurti savybes turis ir kiekis. Turis turi būti pasirenkamas objekto kūrimo metu. Parašyti metodą ipilti(kiekis), kuris keistų savybę kiekis. Jeigu stiklinės tūris yra mažesnis nei pilamas kiekis- kiekis netelpa ir būna lygus tūriui. Parašyti metodą ispilti(), kuris grąžiną kiekį. Pilant išpilamas visas kiekis, tas kas netelpa, nuteka per stalo viršų.  Sukurti metodą stiklinejeYra(), kuris į konsolę atspausdintų kiek stiklinėje yra skysčio. Sukurti tris stiklinės objektus su tūriais: 200, 150, 100. Didžiausią pripilti pilną ir tada ją ispilti į mažesnę stiklinę, o mažesnę į dar mažesnę.
+ */
+console.log('---------- 8 ----------');
+console.clear();
+
+class Stikline {
+    constructor (turis) {
+        this.turis = turis;
+        this.kiekis = 0;
+    }
+    ipilti(kiekis) {
+        kiekis > this.turis ? this.kiekis = this.turis : this.kiekis += kiekis;
+        return `Ipilta ${this.kiekis} ml vandens`
+    }
+    // ispilti(kiekis) {
+        
+    // }
+}
