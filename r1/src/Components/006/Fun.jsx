@@ -8,13 +8,11 @@ function Fun({spalva}) {
 
     const changeBg = () => {
         // setBg('crimson');
-        setBg(bg === 'indigo' ? 'crimson' : 'indigo')
+        setBg(b => b === 'indigo' ? 'crimson' : 'indigo')
         console.log(bg);
 
     };
     const addOne = () => {
-        setCount(c => c + 1);
-        setCount(c => c + 1);
         setCount(c => c + 1);
     };
 
