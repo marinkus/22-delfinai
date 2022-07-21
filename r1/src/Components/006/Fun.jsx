@@ -1,10 +1,9 @@
 import { useState } from "react";
 
-function Fun({spalva}) {
+function Fun({spalva, setCount}) {
 
 
     const [bg, setBg] = useState('indigo');
-    const [count, setCount] = useState(0);
 
     const changeBg = () => {
         // setBg('crimson');
@@ -21,7 +20,7 @@ function Fun({spalva}) {
         <h2 style={{
             color: spalva,
             backgroundColor: bg
-        }}>Fun {count}</h2>
+        }}>Fun</h2>
         <button onClick={changeBg}>Do Crimson</button>
         <button onClick={addOne}>+ 1</button>
         </>
