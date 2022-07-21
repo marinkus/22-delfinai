@@ -8,7 +8,7 @@ import rand from './Functions/rand';
 import HomeworkList1 from './Components/005/HomeworkList1';
 import HomeworkList2 from './Components/005/HomeworkList2';
 import HomeworkList3 from './Components/005/HomeworkList3';
-import HomeworkList4 from './Components/005/Homework4List';
+import HomeworkList4 from './Components/005/HomeworkList4';
 import HomeworkList5 from './Components/005/HomeworkList5';
 
 const ms = {color: 'crimson', backgroundColor: 'white'};
