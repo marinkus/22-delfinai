@@ -2,6 +2,7 @@ import './App.css';
 import HomeworkState1 from './Components/006/HomeworkState1';
 import HomeworkState2 from './Components/006/HomeworkState2';
 import HomeworkState3 from './Components/006/HomeworkState3';
+import HomeworkState4 from './Components/006/HomeworkState4';
 
 
 
@@ -13,6 +14,7 @@ function App() {
         <HomeworkState1></HomeworkState1>
         <HomeworkState2></HomeworkState2>
         <HomeworkState3></HomeworkState3>
+        <HomeworkState4></HomeworkState4>
       </header>
     </div>
   );
