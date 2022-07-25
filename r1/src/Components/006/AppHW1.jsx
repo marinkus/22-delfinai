@@ -1,9 +1,9 @@
 import './App.css';
-import HomeworkState1 from './Components/006/HomeworkState1';
-import HomeworkState2 from './Components/006/HomeworkState2';
-import HomeworkState3 from './Components/006/HomeworkState3';
-import HomeworkState4 from './Components/006/HomeworkState4';
-import HomeworkState5 from './Components/006/HomeworkState5';
+import HomeworkState1 from './HomeworkState1';
+import HomeworkState2 from './HomeworkState2';
+import HomeworkState3 from './HomeworkState3';
+import HomeworkState4 from './HomeworkState4';
+import HomeworkState5 from './HomeworkState5';
 
 
 
