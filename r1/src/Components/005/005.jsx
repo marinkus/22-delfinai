@@ -1,15 +1,15 @@
 import './App.css';
-import Homework3 from './Components/005/Homework3';
-import Homework4 from './Components/005/Homework4';
-import Homework5 from './Components/005/Homework5';
-import Kosmosas from './Components/005/Kosmosas.jsx';
-import Homework1 from './Components/005/Homework1';
-import rand from './Functions/rand';
-import HomeworkList1 from './Components/005/HomeworkList1';
-import HomeworkList2 from './Components/005/HomeworkList2';
-import HomeworkList3 from './Components/005/HomeworkList3';
-import HomeworkList4 from './Components/005/HomeworkList4';
-import HomeworkList5 from './Components/005/HomeworkList5';
+import Homework3 from './Homework3';
+import Homework4 from './Homework4';
+import Homework5 from './Homework5';
+import Kosmosas from './Kosmosas.jsx';
+import Homework1 from './Homework1';
+import rand from '../../Functions/rand';
+import HomeworkList1 from './HomeworkList1';
+import HomeworkList2 from './HomeworkList2';
+import HomeworkList3 from './HomeworkList3';
+import HomeworkList4 from './HomeworkList4';
+import HomeworkList5 from './HomeworkList5';
 
 const ms = {color: 'crimson', backgroundColor: 'white'};
 
