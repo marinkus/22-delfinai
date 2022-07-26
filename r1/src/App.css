@@ -83,3 +83,9 @@
     align-items: 'center';
     margin-top: '5px';
 }
+.radio input {
+  display: none;
+}
+.radio label {
+  cursor: pointer;
+}
