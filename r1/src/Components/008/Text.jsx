@@ -3,6 +3,7 @@ import { useState } from "react";
 function Text() {
 
     const [text, setText] = useState('');
+    const [color, setColor] = useState('#00aa00');
     
     const [title, setTitle] = useState('TEXT');
 
@@ -16,11 +17,19 @@ function Text() {
         }
     };
 
+    
+    const handleColorInput = e => {
+        setColor(e.target.value);
+    };
+
     return (
         <>
         <fieldset>
-            <legend>{title}</legend>
+            <legend style={{color: color}}>{title}</legend>
             <input type='text' value={text} onChange={handleInput}/>
+            <div>
+            <input type='color' value={color} onChange={handleColorInput}/>
+            </div>
         </fieldset>
         </>
     )
