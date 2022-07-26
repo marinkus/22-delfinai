@@ -1,4 +1,5 @@
 import './App.css';
+import Select from './Components/008/Select';
 import Text from './Components/008/Text';
 
 
@@ -10,6 +11,7 @@ function App() {
       <header className="App-header">
         <h1>008: Form control</h1>
         <Text></Text>
+        <Select></Select>
       </header>
     </div>
   );
