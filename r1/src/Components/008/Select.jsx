@@ -1,5 +1,13 @@
 import { useState } from "react";
 
+const options = [
+    {value: 1, text: 'One'},
+    {value: 2, text: 'Two'},
+    {value: 3, text: 'Three'},
+    {value: 1000, text: 'Thousand'},
+];
+
+
 function Select() {
 
     const [select, setSelect] = useState(1000);
@@ -14,12 +22,11 @@ function Select() {
         <fieldset>
             <legend>Selected: {selected}</legend>
             <select value={select} onChange={handleInput}>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
-                <option value="1000">Thousand</option>
+                {
+                    options.map(o => <option key={o.value} value={o.value}>{o.text}</option>)
+                }
             </select>
-            <button onClick={() => setSelected(select)}>Button</button>
+            <button onClick={() => setSelected(options.find(o => select == o.value).text)}>Button</button>
         </fieldset>
         </>
     )
