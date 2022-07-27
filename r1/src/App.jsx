@@ -1,8 +1,6 @@
 import './App.css';
-import Checkbox from './Components/008/Checkbox';
-import Radio from './Components/008/Radio';
-import Select from './Components/008/Select';
-import Text from './Components/008/Text';
+import HW1 from './Components/008/HW1';
+
 
 
 
@@ -11,11 +9,8 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>008: Form control</h1>
-        <Text></Text>
-        <Select></Select>
-        <Checkbox></Checkbox>
-        <Radio></Radio>
+        <h1>007/008 Forms Homework</h1>
+        <HW1></HW1>
       </header>
     </div>
   );
