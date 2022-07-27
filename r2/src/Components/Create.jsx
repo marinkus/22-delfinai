@@ -5,8 +5,8 @@ import AnimalsContext from "./AnimalsContext";
 function Create() {
 
     const { animalsTypes } = useContext(AnimalsContext);
-
     const [type, setType] = useState(5);
+    const [weight, setWeight] = useState('');
 
 
     return (
@@ -23,9 +23,10 @@ function Create() {
                 </div>
                 <div className="form-group">
                     <label>How much is the {animalsTypes.find(a => a.id === Number.parseInt(type)).type}</label>
-                    <input type="text" className="form-control" />
+                    <input type="text" className="form-control" value={weight} onChange={e => setWeight(e.target.value)} />
                     <small className='form-text text-muted'>Please enter your animal wieght in kg</small>
                 </div>
+                <button type="button" className="btn btn-outline-info m-2">Add this creature to herd</button>
             </div>
         </div>
     )
