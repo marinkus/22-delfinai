@@ -5,16 +5,35 @@ import { useState } from "react";
 
 function HW1() {
     const [text, setText] = useState('');
+    const [square, setSquare] = useState('');
+
     const handleInput = e => {
         setText(e.target.value);
+        if ('' === e.target.value) {
+            setSquare('')
+        } else {
+        setSquare(e.target.value)
+        }
     };
+    const showInput = e => {
+        setText(e.target.value);
+        if ('' === e.target.value) {
+            setSquare('')
+        } else {
+        setSquare(e.target.value)
+        }
+    };
+
+
+
+
 
     return (
         <>
         <fieldset>
             <legend>Homework: Forms #1</legend>
             <input type="text" value={text} onChange={handleInput}/>
-            <button>Click</button>
+            <button onClick={showInput}>Click</button>
             <div></div>
         </fieldset>
         </>
