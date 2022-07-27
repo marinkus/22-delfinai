@@ -1,3 +1,4 @@
+import { useState } from "react";
 
 
 const animals = [
@@ -7,6 +8,13 @@ const animals = [
 ];
 
 function Crud() {
+    const [select, setSelect] = useState(1);
+    const [selected, setSelected] = useState(1);
+
+    const handleInput = e => {
+        setSelect(e.target.value);
+        };
+
     return (
         <>
         <fieldset>
@@ -16,7 +24,7 @@ function Crud() {
                     animals.map(o => <option key={o.value} value={o.value}>{o.text}</option>)
                 }
             </select>
-            <button>Button</button>
+            <button onClick={() => setSelected(animals.find(o => select == o.value).text)}>Button</button>
         </fieldset>
         </>
     )
