@@ -3,7 +3,10 @@ import AnimalsContext from "./AnimalsContext";
 
 function Line({ data }) {
 
-    const { animalsTypes } = useContext(AnimalsContext);
+    const { animalsTypes, setDeleteData, setModalData } = useContext(AnimalsContext);
+    const doEdit = () => {
+        setModalData({...data});
+    }
 
     return (
         <li className="list-group-item">
@@ -20,8 +23,8 @@ function Line({ data }) {
                     </span>
                 </div>
                 <div className="line__buttons">
-                    <button type="button" className="btn btn-outline-success m-2">EDIT</button>
-                    <button type="button" className="btn btn-outline-danger m-2">DELETE</button>
+                    <button type="button" onClick={doEdit} className="btn btn-outline-success m-2">EDIT</button>
+                    <button type="button" onClick={() => setDeleteData(data.id)} className="btn btn-outline-danger m-2">DELETE</button>
                 </div>
             </div>
         </li>

@@ -3,8 +3,9 @@ import './App.scss';
 import Create from './Components/Create';
 import AnimalsContext from './Components/AnimalsContext';
 import { useEffect, useState } from 'react';
-import { create, read } from './Functions/localStorage';
+import { create, read, destroy } from './Functions/localStorage';
 import List from './Components/List';
+import Edit from './Components/Edit';
 
 const animalsTypes = [
   { id: 1, type: 'Antis' },
@@ -18,10 +19,14 @@ const keyLock = 'myHerd';
 
 function App() {
 
+  const [lastUpdate, setLastUpdate] = useState(Date.now());
+
+  const [modalData, setModalData] = useState(null);
+
   const [createData, setCreateData] = useState(null);
+  const [deleteData, setDeleteData] = useState(null);
   const [animals, setAnimals] = useState(null);
 
-  const [lastUpdate, setLastUpdate] = useState(Date.now());
 
   useEffect(() => {
     setAnimals(read(keyLock))
@@ -34,13 +39,23 @@ function App() {
     create(keyLock, createData);
     setLastUpdate(Date.now());
   }, [createData]);
-  
+  useEffect(() => {
+    if (null === deleteData) {
+      return;
+    }
+    destroy(keyLock, deleteData);
+    setLastUpdate(Date.now());
+  }, [deleteData]);
+
 
   return (
     <AnimalsContext.Provider value={{
       animalsTypes,
       setCreateData,
-      animals
+      animals,
+      setDeleteData,
+      modalData,
+      setModalData
     }}>
       <div className='container'>
         <div className="row">
@@ -52,6 +67,7 @@ function App() {
           </div>
         </div>
       </div>
+      <Edit></Edit>
     </AnimalsContext.Provider>
   );
 }
