@@ -2,9 +2,9 @@ import './bootstrap.css';
 import './App.scss';
 import Create from './Components/Create';
 import AnimalsContext from './Components/AnimalsContext';
-import { useState } from 'react';
-import { useEffect } from 'react';
-import { create } from './Functions/localStorage';
+import { useEffect, useState } from 'react';
+import { create, read } from './Functions/localStorage';
+import List from './Components/List';
 
 const animalsTypes = [
   { id: 1, type: 'Antis' },
@@ -14,23 +14,33 @@ const animalsTypes = [
   { id: 5, type: 'Briedis' },
   { id: 6, type: 'Barsukas' }
 ];
-const keyLock = 'myZoo';
+const keyLock = 'myHerd';
 
 function App() {
 
   const [createData, setCreateData] = useState(null);
+  const [animals, setAnimals] = useState(null);
+
+  const [lastUpdate, setLastUpdate] = useState(Date.now());
+
+  useEffect(() => {
+    setAnimals(read(keyLock))
+  }, [lastUpdate]);
 
   useEffect(() => {
     if (null === createData) {
       return;
     }
     create(keyLock, createData);
-  }, [createData])
+    setLastUpdate(Date.now());
+  }, [createData]);
+  
 
   return (
     <AnimalsContext.Provider value={{
       animalsTypes,
-      setCreateData
+      setCreateData,
+      animals
     }}>
       <div className='container'>
         <div className="row">
@@ -38,7 +48,7 @@ function App() {
             <Create></Create>
           </div>
           <div className="col-8">
-            One of three columns
+            <List></List>
           </div>
         </div>
       </div>
