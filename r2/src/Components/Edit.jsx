@@ -5,15 +5,14 @@ import AnimalsContext from "./AnimalsContext";
 
 function Edit() {
     const { modalData, setModalData } = useContext(AnimalsContext);
-    const { animalsTypes, setCreateData } = useContext(AnimalsContext);
+    const { animalsTypes, setEditData } = useContext(AnimalsContext);
     const [type, setType] = useState(5);
     const [weight, setWeight] = useState('');
 
 
     const buttonClick = () => {
-        setCreateData({ type, weight: parseFloat(weight) });
-        setType(5);
-        setWeight('');
+        setEditData({ type, weight: parseFloat(weight), id: modalData.id });
+        setModalData(null);
     }
 
     useEffect(() => {
@@ -59,7 +58,7 @@ function Edit() {
                     </div>
                     <div className="modal-footer">
                         <button type="button" onClick={() => setModalData(null)} className="btn btn-secondary">Close</button>
-                        <button type="button" className="btn btn-primary">Save changes</button>
+                        <button type="button" onClick={buttonClick} className="btn btn-primary">Save changes</button>
                     </div>
                 </div>
             </div>
