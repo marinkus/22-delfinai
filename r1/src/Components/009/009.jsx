@@ -1,8 +1,8 @@
 import { useRef } from 'react';
 import { useState } from 'react';
 import './App.css';
-import M1 from './Components/009/M1';
-import GlobalContext from './Contexts/GlobalContext';
+import M1 from './M1';
+import GlobalContext from '../../Contexts/GlobalContext';
 
 
 
