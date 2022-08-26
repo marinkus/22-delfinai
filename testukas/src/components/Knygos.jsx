@@ -6,7 +6,6 @@ function Knygos() {
     const [knygos, setKnygos] = useState([]);
     const [types, setTypes] = useState([]);
     const [loading, setLoading] = useState(true);
-    // const [loading2, setLoading2] = useState(true);
 
     useEffect(() => {
 
