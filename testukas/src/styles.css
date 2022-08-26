@@ -1,0 +1,27 @@
+.App {
+    font-family: sans-serif;
+    text-align: center;
+    /* width: 1200px; */
+    align-items: center;
+    /* margin-left: calc(50% - 600px); */
+  }
+.Image {
+    width: 250px;
+}
+.container {
+    display: flex;
+    flex-wrap: wrap;
+}
+.box {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    height: 400px;
+    border: 2px solid black;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+}
+.title {
+    font-size: 24px;
+}
