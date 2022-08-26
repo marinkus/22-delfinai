@@ -31,11 +31,11 @@ function Knygos() {
     }, []);
 
     if (loading) {
-        return <div className='title'>Loading, please wait...</div>
+        return <div className='title'>Neapsimesk, kad nori skaityti...</div>
     } else {
         return (
             <div className="App">
-                    <h1>Neapsimesk, kad nori skaityti:</h1>
+                    <h1>Lengvi skaitaliukai:</h1>
                     <div className='container'>
                         {
                             knygos.map(knyga => <figure key={knyga.type} className="box"><img src={knyga.img} alt={knyga.title} /><figcaption
