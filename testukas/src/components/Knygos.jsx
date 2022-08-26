@@ -35,14 +35,14 @@ function Knygos() {
     } else {
         return (
             <div className="App">
-                    <h1>Books:</h1>
+                    <h1>Neapsimesk, kad nori skaityti:</h1>
                     <div className='container'>
                         {
                             knygos.map(knyga => <figure key={knyga.type} className="box"><img src={knyga.img} alt={knyga.title} /><figcaption
                            className="text" >{knyga.title} by {knyga.author}</figcaption>
-                           <p className="price">Price: {knyga.price}$</p>{
-                            types.map(type => type.id === knyga.id ? <p>{type.title}</p> : null)
-                            }</figure>)
+                           {
+                            types.map(type => type.id === knyga.id ? <p className="type">{type.title}</p> : null)
+                            }<p className="price">Price: {knyga.price}$</p></figure>)
                         }
                     </div>
             </div>
