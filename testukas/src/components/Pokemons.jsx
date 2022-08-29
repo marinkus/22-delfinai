@@ -9,12 +9,13 @@ const Pokemons = () => {
 
     useEffect(() => {
 
-      fetch("https://pokeapi.co/api/v2/pokemon")
+      fetch("https://pokbggeapi.co/api/v2/pokemon")
       .then((response) => response.json())
       .then(res => {
         setPokemons(res.results);
         setLoading(false);
-      });
+      })
+      .catch(err=> console.log(err.message))
 
 
     }, []);

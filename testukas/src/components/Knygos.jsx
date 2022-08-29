@@ -1,5 +1,4 @@
-import { useEffect } from "react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function Knygos() {
 
@@ -35,16 +34,16 @@ function Knygos() {
     } else {
         return (
             <div className="App">
-                    <h1>Lengvi skaitaliukai:</h1>
-                    <div className='container'>
-                        {
-                            knygos.map(knyga => <figure key={knyga.type} className="box"><img src={knyga.img} alt={knyga.title} /><figcaption
-                           className="text" >{knyga.title} by {knyga.author}</figcaption>
-                           {
-                            types.map(type => type.id === knyga.id ? <p className="type">{type.title}</p> : null)
+                <h1>Lengvi skaitaliukai:</h1>
+                <div className='container'>
+                    {
+                        knygos.map((knyga, index) => <figure key={index} className="box"><img src={knyga.img} alt={knyga.title} /><figcaption
+                            className="text" >{knyga.title} by {knyga.author}</figcaption>
+                            {
+                                types.map((type, ind) => type.id === knyga.id ? <p key={ind} className="type">{type.title}</p> : null)
                             }<p className="price">Price: {knyga.price}$</p></figure>)
-                        }
-                    </div>
+                    }
+                </div>
             </div>
         );
     };
