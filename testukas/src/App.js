@@ -6,9 +6,9 @@ import Knygos from "./components/Knygos";
 export default function App() {
   return (
     <div className="App">
-      {/* <Animals></Animals>
-      <Pokemons></Pokemons> */}
-      <Knygos></Knygos>
+      {/* <Animals></Animals> */}
+      <Pokemons></Pokemons>
+      {/* <Knygos></Knygos> */}
     </div>
   );
 }

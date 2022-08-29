@@ -1,5 +1,4 @@
-import rand from "../rand";
-import colors from '../colors';
+import Animal from "./Animal";
 const animals = [
     {
       id: 1,
@@ -56,9 +55,7 @@ const animals = [
     <>
     <div className="container">
         {
-            animals.map(animal => <figure key={animal.id} className="box"><img className="Image" src={animal.img} alt={animal.animal+"-animal"} /><figcaption style={{
-                backgroundColor: colors[rand(0, colors.length-1)]
-            }} className="title" >{animal.animal}</figcaption></figure>)
+            animals.map(animal => <Animal key={animal.id} url={animal.img} animal={animal.animal}/>)
         }
     </div>
     </>

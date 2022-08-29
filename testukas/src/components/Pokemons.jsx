@@ -1,9 +1,8 @@
 import { useEffect } from "react";
 import { useState } from "react";
-import colors from "./colors";
-import rand from "./rand";
+import Pokemon from "./Pokemon";
 
-function Pokemons() {
+const Pokemons = () => {
 
     const [pokemons, setPokemons] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -29,8 +28,8 @@ function Pokemons() {
         <h1>Pokemons list:</h1>
         <ul>
           {
-            pokemons.map(pokes => <li key={pokes.name}><a style={{color: colors[rand(0, colors.length-1)]}} className="link" href={pokes.url}>{pokes.name}</a></li>)
-          }
+            pokemons.map((pokes, index) => <Pokemon urlas={pokes.url} vardas={pokes.name} key={index}></Pokemon>)
+          }{" "}
         </ul>
       </header>
     </div>
