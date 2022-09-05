@@ -12,6 +12,9 @@ function Create({ setCreateData }) {
             weight,
             tail: tail ? 1 : 0
         }
+        setType('');
+        setWeight('');
+        setTail(false);
         setCreateData(data);
     }
 
