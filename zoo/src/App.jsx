@@ -11,6 +11,7 @@ function App() {
 
   const [animals, setAnimals] = useState(null);
   const [createData, setCreateData] = useState(null);
+  const [deleteData, setDeleteData] = useState(null);
   const [lastUpdate, setLastUpdate] = useState(Date.now());
 
 
@@ -26,10 +27,19 @@ function App() {
     axios.post('http://animals.zoo/react/list', createData)
     .then(res => {
       setLastUpdate(Date.now());
-      console.log(res)
 })
       
   }, [createData])
+  useEffect(() => {
+    if (null === deleteData) {
+      return;
+    }
+    axios.delete('http://animals.zoo/react/list/' + deleteData.id)
+    .then(res => {
+      setLastUpdate(Date.now());
+})
+      
+  }, [deleteData])
 
   return (
     <div className="container">
@@ -38,7 +48,7 @@ function App() {
           <Create setCreateData={setCreateData} />
         </div>
         <div className="col-7">
-          <List list={animals} />
+          <List list={animals} setDeleteData={setDeleteData}/>
         </div>
       </div>
     </div>
