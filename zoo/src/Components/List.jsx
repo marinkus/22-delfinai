@@ -1,7 +1,11 @@
-function List({list, setDeleteData}) {
+function List({list, setDeleteData, setModalData}) {
 
     const destroy = id => {
         setDeleteData({id})
+    }
+
+    const edit = a => {
+        setModalData(a)
     }
     if (null === list) {
         return <h2>Loading...</h2>
@@ -33,7 +37,7 @@ function List({list, setDeleteData}) {
                                                     }
                                                 </div>
                                                 <div className="line__buttons">
-                                                    <button type="button" className="btn btn-outline-success m-2">Edit</button>
+                                                    <button type="button" className="btn btn-outline-success m-2" onClick={() => edit(a)}>Edit</button>
                                                     <button type="button" className="btn btn-outline-danger m-2" onClick={() => destroy(a.id)}>Delete</button>
                                                 </div>
                                             </div>
